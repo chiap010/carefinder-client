@@ -1,28 +1,14 @@
-import React, {Component} from 'react';
-import HospitalData from './components/HospitalData';
+import React from 'react';
+import { Router } from 'react-router-dom';
+import history from './services/history';
+import Routes from './routes';
 
-class App extends Component {
-    
-    state = {
-        hospitals: []
-    }; 
-
-    componentDidMount() {
-        fetch('http://mango.cs.uwp.edu:3000/api/v1/hospitals/')
-        
-            .then(res => res.json())
-            .then((data) => {
-                this.setState({ hospitals: data })
-            })
-            .catch(console.log)
-    }
-
-    render() {
-      return (
-          <HospitalData hospitals={this.state.hospitals} />
-
-      )
-  }
+function App() {
+  return (
+    <Router history={history}>
+      <Routes />
+    </Router>
+  );
 }
 
 export default App;

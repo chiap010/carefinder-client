@@ -1,17 +1,25 @@
 import React from 'react'
 
 const HospitalData = (props) => {
-    return (
-        <div>
-            <center><h1>Hospital List</h1></center>
-            
-            
-            { props.hospitals.data.map( (h) =>
-                    <div> {h.name}</div>
-                    )
-                }
-        </div>
-    )
+
+    let itemsToRender;
+    if (props.hospitals.data) {
+        itemsToRender = props.hospitals.data.map(item => {
+          return (
+              <div>
+                <div>{item.name}</div>
+                <div>{item.city} {item.state}</div>
+                <div>{item.phoneNumber}</div>
+                <div> <br /></div>
+              </div>
+            );
+        });
+      } else {
+        itemsToRender = "Loading...";
+      }
+
+  return <div>{itemsToRender}</div>;
+
 };
 
 export default HospitalData
