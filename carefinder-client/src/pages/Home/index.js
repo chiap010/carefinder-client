@@ -18,7 +18,8 @@ class Home extends Component {
         <h1>Home</h1>
         
         <ul>
-            <li><a href="/All">All</a></li>
+            <li><a href="/AllHospitals">All Hospitals</a></li>
+            <li><a href="/HospitalName">Search Hospitals by Name</a></li>
         </ul>
          
         </div>
