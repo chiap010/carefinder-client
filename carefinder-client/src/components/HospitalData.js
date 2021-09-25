@@ -10,8 +10,9 @@ const HospitalData = (props) => {
           return (
               <div key={index}>
                 <div>{item.name}</div>
-                <div>{item.city} {item.state}</div>
+                <div>{item.city} {item.state} {item.zipCode}</div>
                 <div>{item.phoneNumber}</div>
+                <div>County of {item.county}</div>
                 <div> <br /></div>
               </div>
             );

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import HospitalData from '../../components/HospitalData';
 
-class HospitalName extends Component {
+class State extends Component {
 
 
     constructor(props) {
@@ -22,8 +22,8 @@ class HospitalName extends Component {
         { 
 
 
-            let url = "http://mango.cs.uwp.edu:3000/api/v1/hospitals?name=" + this.state.searchValue
-
+            let url = "http://mango.cs.uwp.edu:3000/api/v1/hospitals?state=" + this.state.searchValue
+            // never use & to append
             
                 
                 fetch(url)
@@ -47,17 +47,22 @@ class HospitalName extends Component {
       }
 
 
+    
+     
+
+
+
     render() {
       return (
 
         <div >
-        <h1>Hospital List - Search by Hospital Name</h1>
+        <h1>Hospital List - Search by State</h1>
 
         <p><a href="/">Back</a></p>
 
         <form onSubmit={this.handleSubmit}>
         <label>
-          Search by Hospital Name:
+          Search by State:
           <input value={this.state.searchValue} onChange={this.handleChange} />
         </label>
         
@@ -73,4 +78,4 @@ class HospitalName extends Component {
   }
 }
 
-export default HospitalName;
+export default State;
