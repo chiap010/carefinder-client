@@ -1,0 +1,14 @@
+.hospitalName {
+  font-weight: bold;
+}
+
+.hospitalInformation {
+  background: rgb(18, 5, 179);
+  background: linear-gradient(
+    259deg,
+    rgba(18, 5, 179, 0.8823529411764706) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(31, 1, 57, 0.9588235294117647) 100%
+  );
+  color: white;
+}

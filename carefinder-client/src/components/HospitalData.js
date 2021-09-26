@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/styles.css";
 
 const HospitalData = (props) => {
   // I wanted to use map to parse out the hospital data array coming from props.
@@ -11,13 +12,14 @@ const HospitalData = (props) => {
   if (props.hospitals.data) {
     itemsToRender = props.hospitals.data.map((item, index) => {
       return (
-        <div key={index}>
-          <div>{item.name}</div>
+        <div key={index} className="hospitalInformation">
+          <div className="hospitalName">{item.name}</div>
           <div>
             {item.city} {item.state} {item.zipCode}
           </div>
-          <div>{item.phoneNumber}</div>
           <div>County of {item.county}</div>
+          <div>{item.phoneNumber}</div>
+
           <div>
             {" "}
             <br />
