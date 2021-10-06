@@ -10,6 +10,7 @@ const NavBar = (props) => {
                   <a href="/HospitalName">Hospital Name</a>
                   <a href="/CityName">City</a>
                   <a href="/State">State</a>
+                  <a href="/CityState">City/State</a>
                   <a href="/ZipCode">Zip Code</a>
                   <a href="/CountyName">County</a>
                   <a href="/HospitalID">Provider ID</a>

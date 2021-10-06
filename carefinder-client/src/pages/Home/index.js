@@ -44,6 +44,11 @@ class Home extends Component {
                                     </a>
                               </li>
                               <li>
+                                    <a href="/CityState">
+                                          Search Hospitals by City / State
+                                    </a>
+                              </li>
+                              <li>
                                     <a href="/ZipCode">
                                           Search Hospitals by Zip Code
                                     </a>

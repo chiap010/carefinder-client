@@ -1,39 +1,72 @@
 import React, { Component } from "react";
 import ShowIndividualHospital from "../../components/ShowIndividualHospital";
+
 import NavBar from "../../components/NavBar";
 import PageHeader from "../../components/PageHeader";
 
-class State extends Component {
+class CityState extends Component {
       constructor(props) {
             super(props);
 
             // State variables to store the searchTerm from the textbox
             // and a state variable to store the hospital information.
             this.state = {
-                  searchTerm: "",
+                  searchTermCity: "",
+                  searchTermState: "",
                   hospitals: [],
             };
 
-            this.handleChange = this.handleChange.bind(this);
+            this.handleChangeCity = this.handleChangeCity.bind(this);
+            this.handleChangeState = this.handleChangeState.bind(this);
             this.handleSubmit = this.handleSubmit.bind(this);
       }
 
-      // This handleChange() function is called anytime the value of the textbox is changed.
-      // When this happens, update the state searchTerm variable.  However, we use the
-      // arrow function syntax to only run after the the state is updated.
-      // Without the callback syntax, the fetch might be run without the updated searchTerm,
-      // which can crash the app.
-      handleChange(event) {
-            this.setState({ searchTerm: event.target.value }, () => {
+      handleChangeCity(event) {
+            this.setState({ searchTermCity: event.target.value }, () => {
+                  // All the city data appears to be in uppercase so lets store the string off
+                  // and then in building the URL, we'll uppercase the search string
+                  let searchStringCity = this.state.searchTermCity;
+                  let searchStringState = this.state.searchTermState;
+
                   // Build the URL.  Attach the searchTerm provided by the state to the
-                  // state parameter in the query string.
+                  // city parameter in the query string.
                   let url = encodeURI(
-                        "http://mango.cs.uwp.edu:3000/api/v1/hospitals?state=" +
-                              this.state.searchTerm
+                        "http://mango.cs.uwp.edu:3000/api/v1/hospitals?city=" +
+                              searchStringCity.toUpperCase() +
+                              "&state=" +
+                              searchStringState.toUpperCase()
                   );
 
                   // Run fetch, but only if the searchTerm isn't an empty string.
-                  //if (this.state.searchTerm !== "") {
+                  //if (this.state.searchTermCity !== "") {
+                  fetch(url)
+                        .then((document) => document.json())
+                        .then((data) => {
+                              this.setState({ hospitals: data });
+                        })
+                        .catch(console.log);
+                  //}
+            });
+      }
+
+      handleChangeState(event) {
+            this.setState({ searchTermState: event.target.value }, () => {
+                  // All the city data appears to be in uppercase so lets store the string off
+                  // and then in building the URL, we'll uppercase the search string
+                  let searchStringCity = this.state.searchTermCity;
+                  let searchStringState = this.state.searchTermState;
+
+                  // Build the URL.  Attach the searchTerm provided by the state to the
+                  // city parameter in the query string.
+                  let url = encodeURI(
+                        "http://mango.cs.uwp.edu:3000/api/v1/hospitals?city=" +
+                              searchStringCity.toUpperCase() +
+                              "&state=" +
+                              searchStringState
+                  );
+
+                  // Run fetch, but only if the searchTerm isn't an empty string.
+                  //if (this.state.searchTermState !== "--") {
                   fetch(url)
                         .then((document) => document.json())
                         .then((data) => {
@@ -48,18 +81,36 @@ class State extends Component {
             event.preventDefault();
       }
 
+      // Our render should consist of a NavBar component, a Page Hader, and
+      // the ShowIndividualHospital component which takes in the array from the JSON fetch.
+      // Note that our input textbox will have the value of whatever is stored in the
+      // state for searchTerm.  Each time the input textbox is changed, the handleChange()
+      // function is run, updating the state searchTerm, and re-fetches from the endpoint using that
+      // new search term.
       render() {
             return (
                   <div>
                         <NavBar />
-                        <PageHeader heading="Hospitals by State Name" />
+
+                        <PageHeader heading="Hospitals by City and State" />
 
                         <form onSubmit={this.handleSubmit}>
                               <label>
-                                    Search:
+                                    City:
+                                    <input
+                                          value={this.state.searchTermCity}
+                                          onChange={this.handleChangeCity}
+                                    />
+                              </label>
+
+                              <br />
+                              <br />
+
+                              <label>
+                                    State:
                                     <select
-                                          value={this.state.searchTerm}
-                                          onChange={this.handleChange}
+                                          value={this.state.searchTermState}
+                                          onChange={this.handleChangeState}
                                     >
                                           <option value="">
                                                 -- Select One --
@@ -151,4 +202,4 @@ class State extends Component {
       }
 }
 
-export default State;
+export default CityState;
