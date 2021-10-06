@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import ShowIndividualHospital from "../../components/ShowIndividualHospital";
-
 import NavBar from "../../components/NavBar";
 import PageHeader from "../../components/PageHeader";
 
-class CityName extends Component {
+class ProviderID extends Component {
       constructor(props) {
             super(props);
 
@@ -26,15 +25,11 @@ class CityName extends Component {
       // which can crash the app.
       handleChange(event) {
             this.setState({ searchTerm: event.target.value }, () => {
-                  // All the city data appears to be in uppercase so lets store the string off
-                  // and then in building the URL, we'll uppercase the search string
-                  let searchString = this.state.searchTerm;
-
                   // Build the URL.  Attach the searchTerm provided by the state to the
-                  // city parameter in the query string.
+                  // providerId parameter in the query string.
                   let url = encodeURI(
-                        "http://mango.cs.uwp.edu:3000/api/v1/hospitals?city=" +
-                              searchString.toUpperCase()
+                        "http://mango.cs.uwp.edu:3000/api/v1/hospitals?providerId=" +
+                              this.state.searchTerm
                   );
 
                   // Run fetch, but only if the searchTerm isn't an empty string.
@@ -63,8 +58,7 @@ class CityName extends Component {
             return (
                   <div>
                         <NavBar />
-
-                        <PageHeader heading="Hospitals by City Name" />
+                        <PageHeader heading="Hospitals by Provider ID" />
 
                         <form onSubmit={this.handleSubmit}>
                               <label>
@@ -84,4 +78,4 @@ class CityName extends Component {
       }
 }
 
-export default CityName;
+export default ProviderID;
