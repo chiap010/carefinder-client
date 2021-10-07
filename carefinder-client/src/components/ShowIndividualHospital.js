@@ -17,7 +17,7 @@ const ShowIndividualHospital = (props) => {
                               ? "Ph:  " + item.phoneNumber
                               : "";
 
-                  // Format county name.  Doing some ternary operator stuff!
+                  // Format county name.  Doing some ternary operator stuff to get some practice!
                   let countyNameLine =
                         item.county === undefined
                               ? ""
