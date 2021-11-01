@@ -24,6 +24,13 @@ const ShowIndividualHospital = (props) => {
                               ? ""
                               : item.county + " COUNTY";
 
+                  // Emergency services line
+                  let emergencyServicesLineYesNo = item.emergency_services;
+                  let emergencyServicesLine = "";
+                  if (emergencyServicesLineYesNo === "true") {
+                        emergencyServicesLine = "Emergency Services Available";
+                  }
+
                   // Render the output
                   return (
                         <div key={index} className="hospitalOutterDiv">
@@ -38,6 +45,10 @@ const ShowIndividualHospital = (props) => {
                                     </div>
                                     <div>{countyNameLine}</div>
                                     <div>{phoneLine}</div>
+                                    <div className="emergencyServices">
+                                          {emergencyServicesLine}
+                                    </div>
+                                    <div></div>
                               </div>
                         </div>
                   );

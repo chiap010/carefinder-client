@@ -4,6 +4,8 @@ import ShowIndividualHospital from "../../components/ShowIndividualHospital";
 import NavBar from "../../components/NavBar";
 import PageHeader from "../../components/PageHeader";
 
+import Constants from "../../components/Constants";
+
 class CityName extends Component {
       constructor(props) {
             super(props);
@@ -33,7 +35,8 @@ class CityName extends Component {
                   // Build the URL.  Attach the searchTerm provided by the state to the
                   // city parameter in the query string.
                   let url = encodeURI(
-                        "http://localhost:5556/hospitals?city=" +
+                        Constants.endpointURL +
+                              "?city=" +
                               searchString.toUpperCase()
                   );
 
@@ -41,8 +44,7 @@ class CityName extends Component {
                   if (this.state.searchTerm !== "") {
                         fetch(url, {
                               headers: {
-                                    "X-API-KEY":
-                                          "3L3jyxBwWNa3jBmvwtRzr4M8yCO3Gbg971jIBNtk",
+                                    "X-API-KEY": Constants.myAPIkey,
                               },
                         })
                               .then((document) => document.json())

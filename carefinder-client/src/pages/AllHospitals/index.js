@@ -4,6 +4,8 @@ import ShowIndividualHospital from "../../components/ShowIndividualHospital";
 import NavBar from "../../components/NavBar";
 import PageHeader from "../../components/PageHeader";
 
+import Constants from "../../components/Constants";
+
 // AllHospitals component.  This will make a call to the default endpoint /hospitals
 // which has nothing in the query string.
 class AllHospitals extends Component {
@@ -20,7 +22,11 @@ class AllHospitals extends Component {
       // I don't have a handler event, since there is no input field in this component.
       // Therefore, I used componentDidMount() lifecycle event.
       componentDidMount() {
-            fetch("http://localhost:5556/hospitals?")
+            fetch(Constants.endpointURL, {
+                  headers: {
+                        "X-API-KEY": Constants.myAPIkey,
+                  },
+            })
                   .then((document) => document.json())
                   .then((data) => {
                         this.setState({ hospitals: data });
