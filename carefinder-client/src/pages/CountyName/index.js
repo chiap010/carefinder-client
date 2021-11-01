@@ -33,7 +33,7 @@ class CountyName extends Component {
                   // Build the URL.  Attach the searchTerm provided by the state to the
                   // county parameter in the query string.
                   let url = encodeURI(
-                        "http://mango.cs.uwp.edu:3000/api/v1/hospitals?county=" +
+                        "http://localhost:5556/hospitals?county=" +
                               searchString.toUpperCase()
                   );
 

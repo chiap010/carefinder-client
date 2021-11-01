@@ -28,7 +28,7 @@ class ProviderID extends Component {
                   // Build the URL.  Attach the searchTerm provided by the state to the
                   // providerId parameter in the query string.
                   let url = encodeURI(
-                        "http://mango.cs.uwp.edu:3000/api/v1/hospitals?providerId=" +
+                        "http://localhost:5556/hospitals?providerId=" +
                               this.state.searchTerm
                   );
 

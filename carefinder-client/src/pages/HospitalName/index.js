@@ -33,7 +33,7 @@ class HospitalName extends Component {
                   // Build the URL.  Attach the searchTerm provided by the state to the
                   // (hospital) name parameter in the query string.
                   let url = encodeURI(
-                        "http://mango.cs.uwp.edu:3000/api/v1/hospitals?name=" +
+                        "http://localhost:5556/hospitals?name=" +
                               searchString.toUpperCase()
                   );
 

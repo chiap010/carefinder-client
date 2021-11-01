@@ -33,13 +33,18 @@ class CityName extends Component {
                   // Build the URL.  Attach the searchTerm provided by the state to the
                   // city parameter in the query string.
                   let url = encodeURI(
-                        "http://mango.cs.uwp.edu:3000/api/v1/hospitals?city=" +
+                        "http://localhost:5556/hospitals?city=" +
                               searchString.toUpperCase()
                   );
 
                   // Run fetch, but only if the searchTerm isn't an empty string.
                   if (this.state.searchTerm !== "") {
-                        fetch(url)
+                        fetch(url, {
+                              headers: {
+                                    "X-API-KEY":
+                                          "3L3jyxBwWNa3jBmvwtRzr4M8yCO3Gbg971jIBNtk",
+                              },
+                        })
                               .then((document) => document.json())
                               .then((data) => {
                                     this.setState({ hospitals: data });

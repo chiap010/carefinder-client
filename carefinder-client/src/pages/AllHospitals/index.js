@@ -20,10 +20,7 @@ class AllHospitals extends Component {
       // I don't have a handler event, since there is no input field in this component.
       // Therefore, I used componentDidMount() lifecycle event.
       componentDidMount() {
-            fetch("http://mango.cs.uwp.edu:3000/api/v1/hospitals/")
-                  //fetch(
-                  //"https://c94a0730-800b-40e7-8a56-630cd0ddb300.usrfiles.com/ugd/c94a07_8d646812b3624daf8959df11687fc8b3.txt"
-                  //)
+            fetch("http://localhost:5556/hospitals?")
                   .then((document) => document.json())
                   .then((data) => {
                         this.setState({ hospitals: data });

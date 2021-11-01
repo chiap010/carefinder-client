@@ -12,8 +12,40 @@ h1 {
       padding-top: 20px;
 }
 
-body {
-      background-color: #ffffff;
+/*
+      I guess for a background gradient to fill the whole page, this needs to go into the CSS under HTML,
+      not BODY.  https://stackoverflow.com/questions/16841323/making-gradient-background-fill-page-with-css/16841457
+*/
+html {
+      height: 100%;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,f1f1f1+50,e1e1e1+51,f6f6f6+100;White+Gloss+%231 */
+      background: #ffffff; /* Old browsers */
+      background: -moz-linear-gradient(
+            -45deg,
+            #ffffff 0%,
+            #f1f1f1 50%,
+            #e1e1e1 51%,
+            #f6f6f6 100%
+      ); /* FF3.6-15 */
+      background: -webkit-linear-gradient(
+            -45deg,
+            #ffffff 0%,
+            #f1f1f1 50%,
+            #e1e1e1 51%,
+            #f6f6f6 100%
+      ); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #f1f1f1 50%,
+            #e1e1e1 51%,
+            #f6f6f6 100%
+      ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .hospitalName {
@@ -27,10 +59,10 @@ body {
       text-align: center;
       border: 1px dotted #000000;
       color: black;
-      background-color: #ccded1;
+      background-color: #b8b9dd;
       width: 50%;
-      margin-top: 15px;
-      font-size: 10pt;
+      margin-top: 20px;
+      font-size: 12pt;
       display: inline-block;
 }
 

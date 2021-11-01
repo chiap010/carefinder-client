@@ -13,8 +13,9 @@ const ShowIndividualHospital = (props) => {
             divsToShow = props.hospitals.data.map((item, index) => {
                   // Format phone number
                   let phoneLine =
-                        item.phoneNumber !== ""
-                              ? "Ph:  " + item.phoneNumber
+                        item.phone_number.phone_number !== "" ||
+                        item.phone_number.phone_number !== undefined
+                              ? "Ph:  " + item.phone_number.phone_number
                               : "";
 
                   // Format county name.  Doing some ternary operator stuff to get some practice!
@@ -27,12 +28,13 @@ const ShowIndividualHospital = (props) => {
                   return (
                         <div key={index} className="hospitalOutterDiv">
                               <div className="individualHospital">
-                                    <div className="hospitalName">
-                                          {item.name}
-                                    </div>
+                                    <span className="hospitalName">
+                                          {item.hospital_name}
+                                    </span>
+                                    <span> #{item.provider_id}</span>
                                     <div>
                                           {item.city} {item.state}{" "}
-                                          {item.zipCode}
+                                          {item.zip_code}
                                     </div>
                                     <div>{countyNameLine}</div>
                                     <div>{phoneLine}</div>

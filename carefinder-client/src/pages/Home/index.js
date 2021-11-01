@@ -16,7 +16,7 @@ class Home extends Component {
                   <div>
                         <NavBar />
 
-                        <PageHeader heading="Search Options" />
+                        <PageHeader heading="CareFinder - Search Options" />
 
                         <ul>
                               <li>
