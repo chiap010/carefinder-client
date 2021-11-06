@@ -4,6 +4,8 @@ import ShowIndividualHospital from "../../components/ShowIndividualHospital";
 import NavBar from "../../components/NavBar";
 import PageHeader from "../../components/PageHeader";
 
+import Constants from "../../components/Constants";
+
 class CityState extends Component {
       constructor(props) {
             super(props);
@@ -67,7 +69,11 @@ class CityState extends Component {
 
                   // Run fetch, but only if the searchTerm isn't an empty string.
                   //if (this.state.searchTermState !== "--") {
-                  fetch(url)
+                  fetch(url, {
+                        headers: {
+                              "X-API-KEY": Constants.myAPIkey,
+                        },
+                  })
                         .then((document) => document.json())
                         .then((data) => {
                               this.setState({ hospitals: data });

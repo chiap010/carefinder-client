@@ -13,9 +13,9 @@ const ShowIndividualHospital = (props) => {
             divsToShow = props.hospitals.data.map((item, index) => {
                   // Format phone number
                   let phoneLine =
-                        item.phone_number.phone_number !== "" ||
-                        item.phone_number.phone_number !== undefined
-                              ? "Ph:  " + item.phone_number.phone_number
+                        item.phone_number !== "" ||
+                        item.phone_number !== undefined
+                              ? "Ph:  " + item.phone_number
                               : "";
 
                   // Format county name.  Doing some ternary operator stuff to get some practice!
