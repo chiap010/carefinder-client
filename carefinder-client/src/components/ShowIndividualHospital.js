@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/styles.css";
+import parse from "html-react-parser";
 
 const ShowIndividualHospital = (props) => {
       // https://www.debuggr.io/react-map-of-undefined/
@@ -11,6 +12,23 @@ const ShowIndividualHospital = (props) => {
       // Make sure the array is ready and filled before we attempt mapping.
       if (props.hospitals.data) {
             divsToShow = props.hospitals.data.map((item, index) => {
+                  let mapLink = "";
+                  if (
+                        item.latitude !== undefined ||
+                        item.longitude !== undefined
+                  ) {
+                        let mapsURL = encodeURI(
+                              "https://www.google.com/maps/search/?api=1&query=" +
+                                    item.latitude +
+                                    "," +
+                                    item.longitude
+                        );
+                        mapLink =
+                              "<a target='_blank' href='" +
+                              mapsURL +
+                              "'>Map</a>";
+                  }
+
                   // Format phone number
                   let phoneLine =
                         item.phone_number !== "" ||
@@ -36,7 +54,7 @@ const ShowIndividualHospital = (props) => {
                         <div key={index} className="hospitalOutterDiv">
                               <div className="individualHospital">
                                     <span className="hospitalName">
-                                          {item.hospital_name}
+                                          {item.hospital_name}{" "}
                                     </span>
                                     <span> #{item.provider_id}</span>
                                     <div>
@@ -47,6 +65,9 @@ const ShowIndividualHospital = (props) => {
                                     <div>{phoneLine}</div>
                                     <div className="emergencyServices">
                                           {emergencyServicesLine}
+                                    </div>
+                                    <div className="mapLink">
+                                          {parse(mapLink)}
                                     </div>
                                     <div></div>
                               </div>

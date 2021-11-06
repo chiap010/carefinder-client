@@ -72,6 +72,12 @@ html {
       display: inline-block;
 }
 
+.mapLink {
+      text-align: center;
+      font-size: 8pt;
+      font-weight: bold;
+}
+
 .hospitalOutterDiv {
       width: 100%;
       text-align: center;
