@@ -14,6 +14,7 @@ const NavBar = (props) => {
                   <a href="/ZipCode">Zip Code</a>
                   <a href="/CountyName">County</a>
                   <a href="/HospitalID">Provider ID</a>
+                  <a href="/Distance">Distance</a>
             </div>
       );
 };

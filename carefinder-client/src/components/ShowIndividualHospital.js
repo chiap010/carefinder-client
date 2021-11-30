@@ -10,7 +10,7 @@ const ShowIndividualHospital = (props) => {
 
       let divsToShow;
       // Make sure the array is ready and filled before we attempt mapping.
-      if (props.hospitals.data) {
+      if (props.hospitals.data && !props.hospitals.data.error) {
             divsToShow = props.hospitals.data.map((item, index) => {
                   let mapLink = "";
                   if (

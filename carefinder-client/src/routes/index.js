@@ -9,6 +9,7 @@ import ZipCode from "../pages/ZipCode";
 import CountyName from "../pages/CountyName";
 import ProviderID from "../pages/ProviderID";
 import CityState from "../pages/CityState";
+import Distance from "../pages/Distance";
 
 import Home from "../pages/Home";
 
@@ -28,6 +29,7 @@ export default function Routes() {
                   <Route path="/ZipCode" component={ZipCode} />
                   <Route path="/CountyName" component={CountyName} />
                   <Route path="/HospitalID" component={ProviderID} />
+                  <Route path="/Distance" component={Distance} />
                   <Route path="/" component={Home} />
                   <Route component={Home} />
             </Switch>

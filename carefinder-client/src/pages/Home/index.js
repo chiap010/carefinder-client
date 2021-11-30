@@ -58,6 +58,11 @@ class Home extends Component {
                                           Search Hospitals by County
                                     </a>
                               </li>
+                              <li>
+                                    <a href="/Distance">
+                                          Search Hospitals by Distance
+                                    </a>
+                              </li>
                         </ul>
                   </div>
             );
